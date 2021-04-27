@@ -1,0 +1,105 @@
+@import '../styles/variables.scss';
+
+/* === Header === */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: $base * 4;
+  padding-bottom: $base * 4;
+  background-color: $header-bg-color;
+
+  &__title {
+    color: $color-secondary;
+  }
+}
+/* === /Header === */
+
+/* === Search === */
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: $base * 7;
+  padding-bottom: $base * 7;
+  border-bottom: 1px solid $color-divider;
+
+  &__field {
+    width: $base * 100;
+    margin-right: $base;
+    outline: none;
+    padding-top: $base;
+    padding-bottom: $base;
+    border-color: $color-main;
+    border-radius: $base;
+  }
+
+  &__btn {
+    cursor: pointer;
+    padding-top: $base;
+    padding-bottom: $base;
+    border-color: $color-main;
+    border-radius: $base;
+    background: transparent;
+    text-transform: uppercase;
+  }
+}
+
+// Remove clear btn from search
+input[type='text']::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='text']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+/* === /Search === */
+
+/* === Movies === */
+.movies {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: $base * 10;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $base * 4;
+  margin-top: $base * 7;
+  margin-right: $base * 5;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  &__heading,
+  &__year {
+    font-size: $base * 5;
+    font-weight: 700;
+  }
+
+  &__heading {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__img {
+    margin-top: $base * 3;
+    margin-bottom: $base * 3;
+  }
+}
+/* === /Movies === */
