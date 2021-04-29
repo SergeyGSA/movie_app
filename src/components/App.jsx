@@ -15,7 +15,7 @@ function App() {
   const [ state, dispatch ] = useReducer(reducer, initialState)
 
   useEffect(() => {
-    axios.get(`http://www.omdbapi.com/?s=sheldon&apikey=${API_KEY}`)
+    axios.get(`http://www.omdbapi.com/?s=mask&apikey=${API_KEY}`)
         .then(jsonResponse => {
             dispatch({
               type: 'MOVIE_DOWNLOAD_SUCCESS',
@@ -62,7 +62,11 @@ function App() {
     <div className="app">
       <Header text="Rotten Cucumbers"/>
       <Search search={searchFunction} />
-      <div className="movies"> {moviesList} </div>
+      <div className="movies"> 
+        <div className="movies-wrapper">
+          {moviesList}
+        </div>
+      </div>
     </div>
   )
 }

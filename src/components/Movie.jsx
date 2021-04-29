@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import '../App.scss'
 import noPosterImg from '../assets/no-poster.jpg'
@@ -9,17 +10,21 @@ function Movie({ movie }) {
 
   return (
     <div className="movie">
-      <span 
+      <h2 
         className="movie__heading"
+        title={movie.Title}
       > 
-        {movie.Title} 
-      </span>
+        <a
+          className="movie__heading-link" 
+          href={`https://www.imdb.com/title/${movie.imdbID}`}
+        > 
+          {movie.Title}
+        </a>  
+      </h2>
       <img 
         className="movie__img" 
         src={poster} 
         alt={movie.Title}
-        width="270px"
-        height="400px"
       />
       <span 
         className="movie__year"
@@ -28,6 +33,10 @@ function Movie({ movie }) {
       </span>
     </div>
   )
+}
+
+Movie.propTypes = {
+  movie:  PropTypes.objectOf(PropTypes.string).isRequired,
 }
 
 export default Movie

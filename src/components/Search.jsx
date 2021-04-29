@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import '../App.scss'
 
@@ -10,7 +11,7 @@ function Search({ search }) {
   }
 
   const sendSearchValue = () => {
-    search(searchValue)
+    search(searchValue.trim())
     setSearchValue('')
   }
 
@@ -20,12 +21,14 @@ function Search({ search }) {
         <input 
           className="search__field" 
           type="search" 
+          aria-label="search field"
           value={searchValue}
           onChange={handlerSearchValue}
         />
         <button 
           className="search__btn" 
           type="submit" 
+          aria-label="search button"
           onClick={sendSearchValue}
         >
           Search
@@ -33,6 +36,10 @@ function Search({ search }) {
       </form>
     </div>
   )
+}
+
+Search.propTypes = {
+  search: PropTypes.func.isRequired,
 }
 
 export default Search
